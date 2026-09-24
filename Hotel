@@ -1,0 +1,116 @@
+Algoritmo "Sistema do Hotel confort"
+
+Var
+
+ opcaomenu,quarto: inteiro
+ nome,pausar: caractere
+ 
+ 
+//procedimento da tela inicial
+procedimento TelaInicial()
+Inicio
+
+      escreval("===================================")
+      escreval("    Bem vindo ao Hotel confort     ")
+      escreval("===================================")
+      escreval("Pressione Enter para prosseguir.")
+      leia(pausar)
+      
+fimprocedimento
+//procedimento do menu principal
+procedimento MenuPrincipal
+Inicio
+
+      Escreval("===================================")
+      escreval("          MENU PRINCIPAL           ")
+      escreval("===================================")
+      escreval("1 - Consultar quartos disponiveis.")
+      escreval("2 - Reservar um quarto.")
+      escreval("3 - Cancelar uma Reserva.")
+      escreval("4 - Fale Conosco.")
+      escreval("0 - Sair.")
+      escreval("===================================")
+      escreva("Escolha uma das op��es acima: ")
+      leia(opcaomenu)
+
+fimprocedimento
+//Procedimento para a consulta dos quartos.
+procedimento ConsultaQuartos
+Inicio
+
+      escreval("===================================")
+      escreval("        QUARTOS DISPONIVEIS        ")
+      escreval("1. Quarto 101 - Disponivel")
+      escreval("2. Quarto 102 - Disponivel")
+      escreval("3. Quarto 103 - Indisponivel")
+      escreval("4. Quarto 104 - Disponivel")
+      escreval("5. Quarto 105 - Indisponivel")
+      escreval("Pressione Enter para fechar esta tela.")
+      leia(pausar)
+      
+fimprocedimento
+//Procedimento para a reserva de quartos.
+procedimento ReservaQuartos
+Inicio
+
+      Escreva("Digite seu nome: ")
+      leia(nome)
+                Repita
+      escreva("Digite o quarto que deseja reservar ex:(101): ")
+      Leia(quarto)
+      se(quarto = 103) ou (quarto = 105) entao
+                escreval("Desculpe, o quarto ", quarto, " esta indisponivel no momento.")
+      fimse
+                ate (quarto <> 103) e (quarto <> 105)
+                escreval(nome," reservou o quarto ",quarto)
+fimprocedimento
+//procedimento para cancelar uma reserva.
+procedimento CancelaReserva
+Inicio
+
+      escreva("Digite seu nome: ")
+      leia(nome)
+          repita
+          escreva("Digite o quarto que deseja cancelar: ")
+          leia(quarto)
+          se (quarto <> 101) e (quarto <> 102) e (quarto <> 103) e (quarto <> 104) e (quarto <> 105) entao
+                 escreval("Quarto invalido! Digite um numero de quarto existente (101 a 105).")
+            fimse
+          Ate (quarto = 101) ou (quarto = 102) ou (quarto = 103) ou (quarto = 104) ou (quarto = 105)
+          escreval(nome," cancelou com sucesso a reserva do quarto ",quarto)
+      
+fimprocedimento
+//procedimento do FaleConosco
+procedimento FaleConosco
+Inicio
+
+      escreval("=====================================================================")
+      escreval("No caso de duvidas entre em contato com: atendimento@hotelconfort.com")
+      escreval("=====================================================================")
+      leia(pausar)
+      
+fimprocedimento
+//Loop Principal
+Inicio
+
+      TelaInicial()
+      Repita
+      MenuPrincipal()
+
+       Escolha opcaomenu
+       Caso 1
+            ConsultaQuartos()
+       Caso 2
+            ReservaQuartos()
+       Caso 3
+            CancelaReserva()
+       Caso 4
+            FaleConosco()
+       Caso 0
+            Escreval("Encerrando o sistema... At� a proxima")
+       OutroCaso
+            Escreval("Op��o invalida! Tente Novamente.")
+       FimEscolha
+       Ate opcaomenu = 0
+
+Fimalgoritmo
